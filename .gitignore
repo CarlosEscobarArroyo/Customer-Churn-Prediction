@@ -1,0 +1,50 @@
+# =====================
+# Python general
+# =====================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# =====================
+# Virtual environments
+# =====================
+*.env
+.env
+.venv/
+env/
+venv/
+
+# =====================
+# Jupyter Notebooks
+# =====================
+.ipynb_checkpoints/
+
+# =====================
+# VSCode settings
+# =====================
+.vscode/
+
+# =====================
+# OS-generated files
+# =====================
+.DS_Store
+Thumbs.db
+
+# =====================
+# Data (sensibles)
+# =====================
+data/
+*.csv
+*.xlsx
+*.xls
+*.parquet
+*.json
+*.pickle
+*.pkl
+
+# =====================
+# Logs & temporary
+# =====================
+*.log
+*.tmp

@@ -6,7 +6,7 @@ from sklearn.metrics import confusion_matrix, roc_curve, roc_auc_score
 import warnings
 
 
-def plot_distribution(data, columns, target_col='target', figsize=(8, 4)):
+def plot_distribution(data, columns, target_col, figsize=(8, 4)):
     n_cols = len(columns)
     n_rows = (n_cols + 2) // 3
 
@@ -70,8 +70,8 @@ def plot_outliers(data, columns, target_col, figsize=(8, 4)):
     plt.show()
 
 def plot_class_balance(y, title="Distribución de Clases"):
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(8, 4))
-
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(8, 5))
+    sns.set_style("whitegrid")
     # Gráfico de barras
     value_counts = y.value_counts()
     ax1.bar(value_counts.index, value_counts.values, color='skyblue')
@@ -142,3 +142,13 @@ def detect_outliers_iqr(df, columns):
         outliers = df[(df[col] < lower_bound) | (df[col] > upper_bound)]
         outliers_count[col] = len(outliers)
     return outliers_count
+
+def erase_outliers_iqr(df, columns):
+    for col in columns:
+        Q1 = df[col].quantile(0.25)
+        Q3 = df[col].quantile(0.75)
+        IQR = Q3 - Q1
+        lower_bound = Q1 - 1.5 * IQR
+        upper_bound = Q3 + 1.5 * IQR
+        df = df[(df[col] >= lower_bound) & (df[col] <= upper_bound)]
+    return df
