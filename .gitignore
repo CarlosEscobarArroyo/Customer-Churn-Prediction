@@ -34,17 +34,17 @@ Thumbs.db
 # =====================
 # Data (sensibles)
 # =====================
-data/
-*.csv
-*.xlsx
-*.xls
-*.parquet
-*.json
-*.pickle
-*.pkl
+data/*
+!data/CHURN_FEATURES_EXAMPLE.csv
+!data/VALIDATION_FEATURES_EXAMPLE.csv
 
 # =====================
 # Logs & temporary
 # =====================
 *.log
 *.tmp
+# =====================
+# Reports (sensibles)
+# =====================
+reports/*
+!reports/resultados_validacion_EXAMPLE.xlsx
